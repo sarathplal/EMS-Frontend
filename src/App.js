@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import Edit from './Pages/Edit';
+import Home from './Pages/Home';
+import Register from './Pages/Register';
+import View from './Pages/View';
+import Emsfooter from './components/Emsfooter';
+import Emsheader from './components/Emsheader';
+import { Route,Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <Emsheader/>
       </header>
-    </div>
+
+      <Routes>
+        <Route path="/" element={<Home/>}></Route>
+        <Route path="/register" element={<Register/>}></Route>
+        <Route path="/view/:id" element={<View/>}></Route>
+        <Route path="/edit/:id" element={<Edit/>}></Route>
+      </Routes>
+      <footer>
+        <Emsfooter/>
+      </footer>
+    </>
   );
 }
 
